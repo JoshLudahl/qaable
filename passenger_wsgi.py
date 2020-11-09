@@ -2,6 +2,7 @@ import os
 from flask import Flask, request, render_template, make_response, redirect, url_for
 
 app = Flask(__name__)
+import test
 
 @app.route('/')
 @app.route('/<name>')
