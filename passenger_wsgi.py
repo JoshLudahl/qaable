@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, render_template, make_response, redirect, url_for
 
 app = Flask(__name__)
@@ -12,7 +13,7 @@ def hello_world(name=None):
 
 @app.route('/', methods = ["POST"])
 def postHello():
-    unit = app.config.from_envvar('UNIT')
+    unit = os.environ.get("UNIT")
     req = request.form.get("name", "world")
     resp = make_response(render_template('index.html', name=req, unit=unit), 200)
     resp.headers['X-Something'] = 'Custom'
