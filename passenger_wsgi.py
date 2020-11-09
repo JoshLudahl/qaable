@@ -5,8 +5,15 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/<name>')
 def hello_world(name=None):
-    other=request.args.get("name", "world")
-    resp = make_response(render_template('index.html', name=other), 200)
-    resp.headers['X-Someting'] = 'Great'
+    req=request.args.get("name", "world")
+    resp = make_response(render_template('index.html', name=req), 200)
+    resp.headers['X-Someting'] = 'Custom'
     return resp
+
+@app.route('/', methods = ["POST"])
+def postHello():
+    req = request.form.get("name", "world")
+    resp = make_response(render_template('index.html', name=req))
+    return resp
+
 application = app
