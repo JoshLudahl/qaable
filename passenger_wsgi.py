@@ -3,6 +3,8 @@ from flask import Flask, request, render_template, make_response, redirect, url_
 
 app = Flask(__name__)
 
+import test
+
 @app.route('/')
 @app.route('/<name>')
 def hello_world(name=None):
@@ -20,4 +22,3 @@ def postHello():
     return resp
 
 application = app
-import test

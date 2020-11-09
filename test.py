@@ -1,4 +1,4 @@
-from __main__ import app
+from passenger_wsgi import app
 
 @app.route('/test', methods=['GET'])
 def test():
