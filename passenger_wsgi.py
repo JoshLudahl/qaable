@@ -7,13 +7,14 @@ app = Flask(__name__)
 def hello_world(name=None):
     req=request.args.get("name", "world")
     resp = make_response(render_template('index.html', name=req), 200)
-    resp.headers['X-Someting'] = 'Custom'
+    resp.headers['X-Something'] = 'Custom'
     return resp
 
 @app.route('/', methods = ["POST"])
 def postHello():
     req = request.form.get("name", "world")
-    resp = make_response(render_template('index.html', name=req))
+    resp = make_response(render_template('index.html', name=req), 200)
+    resp.headers['X-Something'] = 'Custom'
     return resp
 
 application = app
