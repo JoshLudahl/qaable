@@ -20,7 +20,7 @@ import test
 
 @app.route('/')
 @app.route('/<name>')
-def hello_world(name=None):
+def hello_world():
     req=request.args.get("name", "world")
     resp = make_response(render_template('index.html', name=req), 200)
     resp.headers['X-Something'] = 'Custom'
@@ -29,10 +29,9 @@ def hello_world(name=None):
 @app.route('/', methods = ["POST"])
 def postHello():
     unit = os.environ.get("UNIT")
-    
-    session["name"] = request.form.get("name", None)
+    session["name"] = request.form.get("name")
     req = request.form.get("name", "world")
-    resp = make_response(render_template('index.html', name=req, unit=unit), 200)
+    resp = make_response(render_template('index.html', named=req, unit=unit), 200)
     resp.headers['X-Something'] = 'Custom'
     return resp
 
