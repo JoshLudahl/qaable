@@ -6,6 +6,7 @@ app = Flask(__name__)
 
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
+app.config["SESSION_COOKIE_SAMESITE"] = 'Strict'
 Session(app)
 
 import test
@@ -21,7 +22,7 @@ def hello_world(name=None):
 @app.route('/', methods = ["POST"])
 def postHello():
     unit = os.environ.get("UNIT")
-    session["SameSite"] = "Strict"
+    
     session["name"] = request.form.get("name", None)
     req = request.form.get("name", "world")
     resp = make_response(render_template('index.html', name=req, unit=unit), 200)
