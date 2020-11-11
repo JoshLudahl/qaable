@@ -21,8 +21,9 @@ import test
 
 def getWeather():
     api_key = os.environ.get("WEATHER_API_KEY")
-    base_url = "https://api.openweathermap.org/data/2.5/onecall?lat=45.4187&lon=122.7872&appid=" + api_key
+    base_url = "https://api.openweathermap.org/data/2.5/onecall?lat=45.4187&lon=122.7872&units=imperial&appid=" + api_key
     req = requests.get(base_url)
+    print(req)
     return req
 
 @app.route('/')
@@ -38,7 +39,8 @@ def postHello():
     unit = os.environ.get("UNIT")
     session["name"] = request.form.get("name")
     req = request.form.get("name", "world")
-    resp = make_response(render_template('index.html', named=req, unit=unit, weather=getWeather()), 200)
+    weather = getWeather()
+    resp = make_response(render_template('index.html', named=req, unit=unit, weather=weather.json()), 200)
     resp.headers['X-Something'] = 'Custom'
     return resp
 
