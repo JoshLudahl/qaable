@@ -32,12 +32,10 @@ def hello_world():
 
 @app.route('/', methods = ["POST"])
 def postHello():
-    unit = os.environ.get("UNIT")
     session["name"] = request.form.get("name")
     req = request.form.get("name", "world")
     weather = getWeather()
-    resp = make_response(render_template('index.html', named=req, unit=unit, weather=weather.json()), 200)
-    resp.headers['X-Something'] = 'Custom'
+    resp = make_response(render_template('index.html', named=req, weather=weather.json()), 200)
     return resp
 
 application = app
