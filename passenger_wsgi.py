@@ -31,7 +31,7 @@ def getWeather():
 def hello_world():
     req=request.args.get("name", "world")
     weather=getWeather()
-    resp = make_response(render_template('index.html', name=req, weather=weather), 200)
+    resp = make_response(render_template('index.html', name=req, weather=weather.json()), 200)
     resp.headers['X-Something'] = 'Custom'
     return resp
 
