@@ -26,8 +26,8 @@ def getWeather():
 
 @app.route('/')
 def hello_world():
-    weather=getWeather().json()
-    resp = make_response(render_template('index.html', weather=weather, 200)
+    weather=getWeather()
+    resp = make_response(render_template('index.html', weather=weather.json(), 200)
     return resp
 
 @app.route('/', methods = ["POST"])
