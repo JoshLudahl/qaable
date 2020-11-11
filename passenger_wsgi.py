@@ -30,7 +30,8 @@ def getWeather():
 @app.route('/<name>')
 def hello_world():
     req=request.args.get("name", "world")
-    resp = make_response(render_template('index.html', name=req), 200)
+    weather=getWeather()
+    resp = make_response(render_template('index.html', name=req, weather=weather), 200)
     resp.headers['X-Something'] = 'Custom'
     return resp
 
