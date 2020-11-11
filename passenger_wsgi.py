@@ -22,9 +22,7 @@ import test
 def getWeather():
     api_key = os.environ.get("WEATHER_API_KEY")
     base_url = "https://api.openweathermap.org/data/2.5/onecall?lat=45.4187&lon=122.7872&units=imperial&appid=" + api_key
-    req = requests.get(base_url)
-    print(req)
-    return req
+    return requests.get(base_url)
 
 @app.route('/')
 def hello_world():
