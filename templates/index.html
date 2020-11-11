@@ -15,6 +15,7 @@
         </form>
 
         <h2>{{ unit }}</h2>
+        <h2>Today's forecast: {{ weather.daily[0].weather[0].main }} - {{ weather.daily[0].weather[0].description }}</h2>
         <h2>Today's high: {{ weather.daily[0].temp.max | round | int }}&#176;</h2>
         <h2>Today's low: {{ weather.daily[0].temp.min | round | int }}&#176;</h2>
     </html>
