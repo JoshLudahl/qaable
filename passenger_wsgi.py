@@ -27,10 +27,12 @@ def getWeather():
 @app.route('/')
 def hello_world():
     weather=getWeather()
-    return = make_response(
+    bob = Bob(66)
+    return  make_response(
         render_template(
             'index.html', 
-            weather=weather.json()
+            weather=weather.json(),
+            bob=bob
         ), 
         200
     )
@@ -40,7 +42,7 @@ def postHello():
     session["name"] = request.form.get("name")
     req = request.form.get("name", "world")
     weather = getWeather()
-    return = make_response(
+    return make_response(
         render_template(
             'index.html', 
             named=req, 
@@ -50,3 +52,8 @@ def postHello():
     )
     
 application = app
+class Bob:
+    def __init__(self, number):
+        self.num = number
+
+
