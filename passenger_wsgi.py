@@ -27,17 +27,26 @@ def getWeather():
 @app.route('/')
 def hello_world():
     weather=getWeather()
-    resp = make_response(render_template('index.html', weather=weather.json()), 200)
-    return resp
+    return = make_response(
+        render_template(
+            'index.html', 
+            weather=weather.json()
+        ), 
+        200
+    )
 
 @app.route('/', methods = ["POST"])
 def postHello():
     session["name"] = request.form.get("name")
     req = request.form.get("name", "world")
     weather = getWeather()
-    resp = make_response(render_template('index.html', named=req, weather=weather.json()), 200)
-    return resp
-
+    return = make_response(
+        render_template(
+            'index.html', 
+            named=req, 
+            weather=weather.json()
+        ), 
+        200
+    )
+    
 application = app
-
-
