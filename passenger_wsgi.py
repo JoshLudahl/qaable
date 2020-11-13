@@ -50,6 +50,6 @@ def postHello():
     )
 @app.template_filter('datetimeformat')
 def datetimeformat(value, format='%H:%M / %d-%m-%Y'):
-    return 34
+    return value.strftime(format)
 
 application = app
