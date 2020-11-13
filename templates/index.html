@@ -18,9 +18,10 @@
         <h2>Today's high: {{ weather.daily[0].temp.max | round | int }}&#176;</h2>
         <h2>Today's low: {{ weather.daily[0].temp.min | round | int }}&#176;</h2>
         
-        <h2>Tomorrow's forecast: {{ weather.daily[0].weather[0].main }} - {{ weather.daily[0].weather[0].description }}</h2>
+        <h2>Tomorrow's forecast: {{ weather.daily[1].weather[1].main }} - {{ weather.daily[1].weather[1].description }}</h2>
         <h2>Tomorrow's high: {{ weather.daily[1].temp.max | round | int }}&#176;</h2>
         <h2>Tomorrow's low: {{ weather.daily[1].temp.min | round | int }}&#176;</h2>
+        <h3>{{ weather.daily[1].dt }}</h3>
     </html>
 
 </html>
