@@ -21,8 +21,11 @@
         <h2>Current temperature: {{weather.current.temp | round | int }}&#176;</h2>
         <h2>Today's high: {{ weather.daily[0].temp.max | round | int }}&#176;</h2>
         <h2>Today's low: {{ weather.daily[0].temp.min | round | int }}&#176;</h2>
-        {% for i in range(2) %}
-        <h1>{{i}}</h1>
+        {% for i in range(3) %}
+        <h2>{{ weather.daily[1].dt | datetimeformat(weather.timezone_offset) }}</h2>
+        <h3>{{ weather.daily[1].weather[0].main }} - {{ weather.daily[1].weather[0].description }}</h3>
+        <h3>High: {{ weather.daily[1].temp.max | round | int }}&#176;</h3>
+        <h3>low: {{ weather.daily[1].temp.min | round | int }}&#176</h3>
 
         {% endfor %}
         <h3>{{ weather.daily[1].dt | datetimeformat(weather.timezone_offset) }}</h3>
