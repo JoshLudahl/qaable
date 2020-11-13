@@ -21,7 +21,7 @@
         <h3>Tomorrow's forecast: {{ weather.daily[1].weather[0].main }} - {{ weather.daily[1].weather[0].description }}</h3>
         <h3>Tomorrow's high: {{ weather.daily[1].temp.max | round | int }}&#176;</h3>
         <h3>Tomorrow's low: {{ weather.daily[1].temp.min | round | int }}&#176;</h3>
-        <h3>{{ weather.daily[1].dt | datetime }}</h3>
+        <h3>{{ weather.daily[1].dt }}</h3>
         
     </body>
 </html>
