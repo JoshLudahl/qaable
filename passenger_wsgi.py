@@ -51,6 +51,6 @@ def postHello():
     )
 @app.template_filter('datetimeformat')
 def datetimeformat(value, offset):
-    return dt.fromtimestamp(value - offset)
+    return dt.fromtimestamp(value - offset).strftime("%A")
 
 application = app
