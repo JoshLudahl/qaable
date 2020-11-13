@@ -54,6 +54,6 @@ def _jinja2_filter_datetime(date, fmt=None):
     date = dateutil.parser.parse(date)
     native = date.replace(tzinfo=None)
     format='%b %d, %Y'
-    return native.strftime(format) 
+    return 123
     
 application = app
