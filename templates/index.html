@@ -4,7 +4,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+        <meta name="description" content="QA Able - Quality Assurance Able">
+        <meta name="author" content="QA Able">
         <title>QA-Able</title>
     </head>
     <body>
@@ -20,7 +21,10 @@
         <h2>Current temperature: {{weather.current.temp | round | int }}&#176;</h2>
         <h2>Today's high: {{ weather.daily[0].temp.max | round | int }}&#176;</h2>
         <h2>Today's low: {{ weather.daily[0].temp.min | round | int }}&#176;</h2>
-        
+        {% for i in range(2) %}
+        <h1>{{i}}</h1>
+
+        {% endfor %}
         <h3>{{ weather.daily[1].dt | datetimeformat(weather.timezone_offset) }}</h3>
         <h3>Tomorrow's forecast: {{ weather.daily[1].weather[0].main }} - {{ weather.daily[1].weather[0].description }}</h3>
         <h3>Tomorrow's high: {{ weather.daily[1].temp.max | round | int }}&#176;</h3>
