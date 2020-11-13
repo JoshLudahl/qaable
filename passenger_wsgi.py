@@ -30,7 +30,7 @@ def send_email():
     smtpObj = smtplib.SMTP_SSL('qaable.com', 465)
     smtpObj.ehlo()
     smtpObj.login(os.environ.get("EMAIL"), os.environ.get("EMAIL_PASSWORD"))
-    smtpObj.sendmail(os.environ.get("EMAIL", 'qa@qaable.com', 'Subject: Testing. \nLove it.'))
+    smtpObj.sendmail(os.environ.get('EMAIL', 'qa@qaable.com', 'Subject: Testing. \nLove it.'))
     smtpObj.quit()
 
 @app.route('/')
