@@ -9,7 +9,7 @@
         <title>QA-Able</title>
     </head>
     <body>
-        <h1>Hello, {{name}}</h1>
+        <h1>Hello</h1>
         {% if session.name %}
             <h1>Hi, {{ session.name }}</h1>
         {% endif %}
@@ -28,6 +28,6 @@
         <h3>High: {{ weather.daily[i+1].temp.max | round | int }}&#176;</h3>
         <h3>low: {{ weather.daily[i+1].temp.min | round | int }}&#176;</h3>
         {% endfor %}  
-              
+
     </body>
 </html>
