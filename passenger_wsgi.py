@@ -37,6 +37,7 @@ def send_email():
 @app.route('/')
 def hello_world():
     weather=getWeather()
+    send_email()
     return  make_response(
         render_template(
             'index.html', 
