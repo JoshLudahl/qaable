@@ -27,7 +27,7 @@ def getWeather():
     return requests.get(base_url)
 
 def send_email():
-    smtpObj = smtplib.SMTP('qaable.com', 465)
+    smtpObj = smtplib.SMTP_SSL('qaable.com', 465)
     smtpObj.ehlo()
     smtpObj.starttls()
     smtpObj.login(os.environ.get("EMAIL"), os.environ.get("EMAIL_PASSWORD"))
