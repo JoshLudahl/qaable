@@ -1,9 +1,7 @@
-import os
-import smtplib
+import os, smtplib, requests
 from flask import Flask, request, render_template, make_response, redirect, session, url_for
 from flask_session import Session
 from datetime import datetime as dt
-import requests
 
 app = Flask(__name__)
 
@@ -36,7 +34,6 @@ def send_email():
 @app.route('/')
 def hello_world():
     weather=getWeather()
-    send_email()
     return  make_response(
         render_template(
             'index.html', 
