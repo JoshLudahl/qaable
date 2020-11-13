@@ -55,6 +55,8 @@ def postHello():
         ), 
         200
     )
+
+# filter for formatting timestamp to day of the week, ie Monday, Tuesday, etc.
 @app.template_filter('datetimeformat')
 def datetimeformat(value, offset):
     return dt.fromtimestamp(value + offset).strftime("%A")
