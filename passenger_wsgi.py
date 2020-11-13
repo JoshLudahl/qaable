@@ -51,6 +51,6 @@ def postHello():
     )
 @app.template_filter('datetimeformat')
 def datetimeformat(value):
-    return dt.utctimetuple(value)
+    return dt.fromtimestamp(value)
 
 application = app
