@@ -1,6 +1,7 @@
 import os
 from flask import Flask, request, render_template, make_response, redirect, session, url_for
 from flask_session import Session
+from datetime import datetime as dt
 import requests
 
 app = Flask(__name__)
@@ -49,7 +50,7 @@ def postHello():
         200
     )
 @app.template_filter('datetimeformat')
-def datetimeformat(value, format='%H:%M / %d-%m-%Y'):
-    return value.strftime(format)
+def datetimeformat(value):
+    return dt.utcfromtimestamp(value)
 
 application = app
