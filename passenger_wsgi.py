@@ -1,4 +1,5 @@
 import os
+import smtplib
 from flask import Flask, request, render_template, make_response, redirect, session, url_for
 from flask_session import Session
 from datetime import datetime as dt
@@ -24,6 +25,14 @@ def getWeather():
     api_key = os.environ.get("WEATHER_API_KEY")
     base_url = "https://api.openweathermap.org/data/2.5/onecall?lat=45.445033&lon=-122.793760&units=imperial&appid=" + api_key
     return requests.get(base_url)
+
+def send_email():
+    smtpObj = smtplib.SMTP('qaable.com', 465)
+    smtpObj.ehlo()
+    smtpObj.starttls()
+    smtpObj.login(os.environ.get("EMAIL"), os.environ.get("EMAIL_PASSWORD"))
+    smtpObj.sendmail(os.environ.get("EMAIL", 'qa@qaable.com', 'Subject: Testing. \nLove it.'))
+    smtpObj.quit()
 
 @app.route('/')
 def hello_world():
