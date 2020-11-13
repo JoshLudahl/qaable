@@ -51,6 +51,6 @@ def postHello():
     )
 @app.template_filter('datetimeformat')
 def datetimeformat(value):
-    return dt.weekday(value)
+    return dt.utctimetuple(value)
 
 application = app
