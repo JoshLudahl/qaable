@@ -1,7 +1,21 @@
+body {
+  background: #f9f9f9;
+}
+
 .custom-margin {
   width: 25%;
 }
 
 .card {
   margin-bottom: 1rem;
+}
+
+.container {
+  background-color: #FFB519;
+}
+
+@media only screen and (max-width: 600px) {
+  .custom-margin {
+    width: 100%;
+  }
 }
