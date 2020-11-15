@@ -49,13 +49,13 @@ def hello_world():
 def postHello():
     req = request.form.get("zip","None")
     geo = getGeoData(req).json()
-    data = geo['records'][0]['fields']
-    weather = getWeather()
+    longitude = geo['records'][0]['fields']['longitude']
+    latitude = geo['records'][0]['fields']['longitude']
+    weather = getWeather(latitude, longitude)
     return make_response(
         render_template(
             'index.html', 
-            weather=weather.json(),
-            geo=data
+            weather=weather.json()
         ), 
         200
     )
