@@ -1,58 +1,63 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="QA Able - Quality Assurance Able">
-        <meta name="author" content="QA Able">
-        
-        <!-- Factory CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 
-        <!-- Custom CSS -->
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/styles.css') }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="QA Able - Quality Assurance Able">
+    <meta name="author" content="QA Able">
 
-        <title>QA-Able</title>
-    </head>
-    <body>
-        <h1>Hello</h1>
-        {% if session.name %}
-            <h1>Hi, {{ session.name }}</h1>
-        {% endif %}
-        <form action="/" method="POST">
-            <input type="text" name="name" placeholder="Name">
-            <input type="submit">
-        </form>
-        <h2>Today's forecast: {{ weather.daily[0].weather[0].main }} - {{ weather.daily[0].weather[0].description }}</h2>
-        <h2>Current temperature: {{weather.current.temp | round | int }}&#176;</h2>
-        <h2>Today's high: {{ weather.daily[0].temp.max | round | int }}&#176;</h2>
-        <h2>Today's low: {{ weather.daily[0].temp.min | round | int }}&#176;</h2>
+    <!-- Factory CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 
-        {% for i in range(3) %}
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/styles.css') }}">
 
-        <div class="container is-max-desktop">
-            <div class="notification is-primary">
-    
-        <div class="card">
+    <title>QA-Able</title>
+</head>
 
-            <div class="card-content">
-              <div class="media">
+<body>
+    <h1>Hello</h1>
+    {% if session.name %}
+    <h1>Hi, {{ session.name }}</h1>
+    {% endif %}
+    <form action="/" method="POST">
+        <input type="text" name="name" placeholder="Name">
+        <input type="submit">
+    </form>
+    <h2>Today's forecast: {{ weather.daily[0].weather[0].main }} - {{ weather.daily[0].weather[0].description }}</h2>
+    <h2>Current temperature: {{weather.current.temp | round | int }}&#176;</h2>
+    <h2>Today's high: {{ weather.daily[0].temp.max | round | int }}&#176;</h2>
+    <h2>Today's low: {{ weather.daily[0].temp.min | round | int }}&#176;</h2>
 
-                <div class="media-content">
-                  <p class="title is-4">{{ weather.daily[i+1].dt | datetimeformat(weather.timezone_offset) }}</p>
-                  <p class="subtitle is-6">{{ weather.daily[i+1].temp.max | round | int }}&#176; | {{ weather.daily[i+1].temp.min | round | int }}&#176;</p>
+    {% for i in range(3) %}
+
+    <div class="container is-max-desktop">
+        <div class="notification is-primary">
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="media">
+
+                        <div class="media-content">
+                            <p class="title is-4">{{ weather.daily[i+1].dt | datetimeformat(weather.timezone_offset) }}
+                            </p>
+                            <p class="subtitle is-6">{{ weather.daily[i+1].temp.max | round | int }}&#176; |
+                                {{ weather.daily[i+1].temp.min | round | int }}&#176;</p>
+                        </div>
+                    </div>
+
+                    <div class="content">
+                        Forecast: {{ weather.daily[i+1].weather[0].main }} -
+                        {{ weather.daily[i+1].weather[0].description }}.
+                    </div>
                 </div>
-              </div>
-          
-              <div class="content">
-                Forecast: {{ weather.daily[i+1].weather[0].main }} - {{ weather.daily[i+1].weather[0].description }}.
-              </div>
             </div>
-          </div>
         </div>
     </div>
-        {% endfor %}  
+    {% endfor %}
 
-    </body>
+</body>
+
 </html>
