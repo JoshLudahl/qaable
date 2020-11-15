@@ -34,6 +34,11 @@
         <h3>{{ weather.daily[i+1].weather[0].main }} - {{ weather.daily[i+1].weather[0].description }}</h3>
         <h3>High: {{ weather.daily[i+1].temp.max | round | int }}&#176;</h3>
         <h3>low: {{ weather.daily[i+1].temp.min | round | int }}&#176;</h3>
+
+        <div class="container is-max-desktop">
+            <div class="notification is-primary">
+              This container has a <code>max-width</code> of <code>$desktop - $container-offset</code> on widescreen and fullhd.
+
         <div class="card">
             <div class="card-image">
               <figure class="image is-4by3">
@@ -62,6 +67,8 @@
               </div>
             </div>
           </div>
+        </div>
+    </div>
         {% endfor %}  
 
     </body>
