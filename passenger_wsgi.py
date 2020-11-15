@@ -19,9 +19,9 @@ Session(app)
 
 import test
 
-def getWeather(lat = "45.445033", lon = "-122.793760"):
+def getWeather(lat = 45.445033, lon = -122.793760):
     api_key = os.environ.get("WEATHER_API_KEY")
-    base_url = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + api_key
+    base_url = "https://api.openweathermap.org/data/2.5/onecall?lat=" + str(lat) + "&lon=" + str(lon) + "&units=imperial&appid=" + api_key
     return requests.get(base_url)
     
 def getGeoData(zip):
@@ -50,8 +50,8 @@ def postHello():
     req = request.form.get("zip","None")
     geo = getGeoData(req)
     weather = getWeather(
-        geo.records[0].fields.longitude,
-        geo.records[0].fields.latitude
+        geo.records[0].fields.latitude,
+        geo.records[0].fields.longitude
     )
     return make_response(
         render_template(
