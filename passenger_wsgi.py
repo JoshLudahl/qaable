@@ -36,11 +36,11 @@ def send_email():
 
 @app.route('/')
 def hello_world():
-    weather=getWeather()
+    weather = getWeather()
     return  make_response(
         render_template(
             'index.html', 
-            weather=weather.json()
+            weather = weather.json()
         ), 
         200
     )
@@ -51,11 +51,15 @@ def postHello():
     geo = getGeoData(req).json()
     longitude = geo['records'][0]['fields']['longitude']
     latitude = geo['records'][0]['fields']['latitude']
+    city = geo['records'][0]['fields']['city']
+    state = geo['records'][0]['fields']['state']
     weather = getWeather(latitude, longitude)
     return make_response(
         render_template(
             'index.html', 
-            weather=weather.json()
+            weather = weather.json(),
+            city = city,
+            state = state
         ), 
         200
     )
