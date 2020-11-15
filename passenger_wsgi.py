@@ -50,7 +50,7 @@ def postHello():
     req = request.form.get("zip","None")
     geo = getGeoData(req).json()
     longitude = geo['records'][0]['fields']['longitude']
-    latitude = geo['records'][0]['fields']['longitude']
+    latitude = geo['records'][0]['fields']['latitude']
     weather = getWeather(latitude, longitude)
     return make_response(
         render_template(
