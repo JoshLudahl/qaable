@@ -50,12 +50,13 @@ def postHello():
     req = request.form.get("zip","None")
     geo = getGeoData(req)
     data = geo.json()
+    n = data.nhits
     weather = getWeather()
     return make_response(
         render_template(
             'index.html', 
             weather=weather.json(),
-            geo=data
+            geo=n
         ), 
         200
     )
