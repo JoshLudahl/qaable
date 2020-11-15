@@ -1,4 +1,7 @@
 .custom-margin {
-  margin-bottom: 1rem;
   width: 25%;
+}
+
+.card {
+  margin-bottom: 1rem;
 }
