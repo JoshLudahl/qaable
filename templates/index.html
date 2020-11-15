@@ -31,6 +31,30 @@
     <h2>Today's high: {{ weather.daily[0].temp.max | round | int }}&#176;</h2>
     <h2>Today's low: {{ weather.daily[0].temp.min | round | int }}&#176;</h2>
 
+
+    <div class="container is-max-desktop custom-margin">
+        <div class="notification is-primary">
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="media">
+
+                        <div class="media-content">
+                            <p class="title is-4">Currently: {{weather.current.temp | round | int }}&#176;
+                            </p>
+                            <p class="subtitle is-6">{{ weather.daily[0].temp.max | round | int }}&#176; | 
+                                {{ weather.daily[0].temp.min | round | int }}&#176;</p>
+                        </div>
+                    </div>
+
+                    <div class="content">
+                        Today's forecast: {{ weather.daily[0].weather[0].main }} - {{ weather.daily[0].weather[0].description }}.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     {% for i in range(3) %}
 
     <div class="container is-max-desktop custom-margin">
@@ -43,7 +67,7 @@
                         <div class="media-content">
                             <p class="title is-4">{{ weather.daily[i+1].dt | datetimeformat(weather.timezone_offset) }}
                             </p>
-                            <p class="subtitle is-6">{{ weather.daily[i+1].temp.max | round | int }}&#176; |
+                            <p class="subtitle is-6">{{ weather.daily[i+1].temp.max | round | int }}&#176; | 
                                 {{ weather.daily[i+1].temp.min | round | int }}&#176;</p>
                         </div>
                     </div>
