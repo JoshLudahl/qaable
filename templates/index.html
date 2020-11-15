@@ -6,7 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="QA Able - Quality Assurance Able">
         <meta name="author" content="QA Able">
+        
+        <!-- Factory CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 
+        <!-- Custom CSS -->
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/styles.css') }}">
 
         <title>QA-Able</title>
@@ -30,6 +34,34 @@
         <h3>{{ weather.daily[i+1].weather[0].main }} - {{ weather.daily[i+1].weather[0].description }}</h3>
         <h3>High: {{ weather.daily[i+1].temp.max | round | int }}&#176;</h3>
         <h3>low: {{ weather.daily[i+1].temp.min | round | int }}&#176;</h3>
+        <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                  <figure class="image is-48x48">
+                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                  </figure>
+                </div>
+                <div class="media-content">
+                  <p class="title is-4">John Smith</p>
+                  <p class="subtitle is-6">@johnsmith</p>
+                </div>
+              </div>
+          
+              <div class="content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                <a href="#">#css</a> <a href="#">#responsive</a>
+                <br>
+                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+              </div>
+            </div>
+          </div>
         {% endfor %}  
 
     </body>
