@@ -48,13 +48,14 @@ def hello_world():
 @app.route('/', methods = ["POST"])
 def postHello():
     req = request.form.get("zip","None")
-    geo = getGeoData(req).json()
+    geo = getGeoData(req)
+    data = geo.json()
     weather = getWeather()
     return make_response(
         render_template(
             'index.html', 
             weather=weather.json(),
-            geo=geo
+            geo=data
         ), 
         200
     )
