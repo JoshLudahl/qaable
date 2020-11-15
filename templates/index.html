@@ -30,10 +30,6 @@
         <h2>Today's low: {{ weather.daily[0].temp.min | round | int }}&#176;</h2>
 
         {% for i in range(3) %}
-        <h2>{{ weather.daily[i+1].dt | datetimeformat(weather.timezone_offset) }}</h2>
-        <h3>{{ weather.daily[i+1].weather[0].main }} - {{ weather.daily[i+1].weather[0].description }}</h3>
-        <h3>High: {{ weather.daily[i+1].temp.max | round | int }}&#176;</h3>
-        <h3>low: {{ weather.daily[i+1].temp.min | round | int }}&#176;</h3>
 
         <div class="container is-max-desktop">
             <div class="notification is-primary">
@@ -45,16 +41,12 @@
 
                 <div class="media-content">
                   <p class="title is-4">{{ weather.daily[i+1].dt | datetimeformat(weather.timezone_offset) }}</p>
-                  <p class="subtitle is-6">@johnsmith</p>
+                  <p class="subtitle is-6">{{ weather.daily[i+1].temp.max | round | int }}&#176; | {{ weather.daily[i+1].temp.min | round | int }}&#176;</p>
                 </div>
               </div>
           
               <div class="content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                <a href="#">#css</a> <a href="#">#responsive</a>
-                <br>
-                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                Forecast: {{ weather.daily[i+1].weather[0].main }} - {{ weather.daily[i+1].weather[0].description }}.
               </div>
             </div>
           </div>
