@@ -19,9 +19,6 @@
 
 <body>
     <h1>Hello</h1>
-    {% if session.name %}
-    <h1>Hi, {{ session.name }}</h1>
-    {% endif %}
     <form action="/" method="POST">
         <input type="text" name="name" placeholder="Name">
         <input type="submit">

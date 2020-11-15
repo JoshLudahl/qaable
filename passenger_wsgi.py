@@ -23,6 +23,9 @@ def getWeather():
     api_key = os.environ.get("WEATHER_API_KEY")
     base_url = "https://api.openweathermap.org/data/2.5/onecall?lat=45.445033&lon=-122.793760&units=imperial&appid=" + api_key
     return requests.get(base_url)
+    
+def getGeoData(zip):
+    return requests.get("https://public.opendatasoft.com/api/records/1.0/search/?dataset=us-zip-code-latitude-and-longitude&q=" + zip +"&facet=state&facet=timezone&facet=dst")
 
 def send_email():
     smtpObj = smtplib.SMTP_SSL('qaable.com', 465)
@@ -44,13 +47,11 @@ def hello_world():
 
 @app.route('/', methods = ["POST"])
 def postHello():
-    session["name"] = request.form.get("name")
     req = request.form.get("name", "world")
     weather = getWeather()
     return make_response(
         render_template(
             'index.html', 
-            named=req, 
             weather=weather.json()
         ), 
         200
