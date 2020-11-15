@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,9 +14,9 @@
 
     <title>QA-Able</title>
 </head>
-
 <body>
     <h1>Hello</h1>
+
     <form action="/" method="POST">
         <input type="text" name="zip" placeholder="Enter zip code">
         <button type="submit">Search</button>
@@ -34,7 +32,6 @@
             <div class="card">
                 <div class="card-content">
                     <div class="media">
-
                         <div class="media-content">
                             <p class="title is-4">Currently: {{weather.current.temp | round | int }}&#176;
                             </p>
@@ -42,20 +39,16 @@
                                 {{ weather.daily[0].temp.min | round | int }}&#176;</p>
                         </div>
                     </div>
-
                     <div class="content">
                         Today's forecast: {{ weather.daily[0].weather[0].main }} - {{ weather.daily[0].weather[0].description }}.
                     </div>
                 </div>
             </div>
 
-
     {% for i in range(3) %}
-
             <div class="card">
                 <div class="card-content">
                     <div class="media">
-
                         <div class="media-content">
                             <p class="title is-4">{{ weather.daily[i+1].dt | datetimeformat(weather.timezone_offset) }}
                             </p>
@@ -63,20 +56,15 @@
                                 {{ weather.daily[i+1].temp.min | round | int }}&#176;</p>
                         </div>
                     </div>
-
                     <div class="content">
                         {{ weather.daily[i+1].weather[0].main }} -
                         {{ weather.daily[i+1].weather[0].description }}.
                     </div>
                 </div>
             </div>
-
     {% endfor %}
+
         </div>
     </div>
-
-
-
 </body>
-
 </html>
