@@ -56,7 +56,7 @@ def postHello():
         render_template(
             'index.html', 
             weather=weather.json(),
-            geo=
+            geo=n
         ), 
         200
     )
