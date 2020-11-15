@@ -3,7 +3,7 @@ body {
 }
 
 .custom-margin {
-  width: 25%;
+  width: 100/3%;
 }
 
 .card {
@@ -14,7 +14,7 @@ body {
   background-color: #FFB519;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
   .custom-margin {
     width: 100%;
   }
