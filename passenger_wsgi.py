@@ -25,7 +25,7 @@ def getWeather(lat = 45.445033, lon = -122.793760):
     return requests.get(base_url)
     
 def getGeoData(zip):
-    return requests.get("https://public.opendatasoft.com/api/records/1.0/search/?dataset=us-zip-code-latitude-and-longitude&q=" + zip +"&facet=state&facet=timezone&facet=dst")
+    return requests.get("https://public.opendatasoft.com/api/records/1.0/search/?dataset=us-zip-code-latitude-and-longitude&q=" + str(zip) +"&facet=state&facet=timezone&facet=dst")
 
 def send_email():
     smtpObj = smtplib.SMTP_SSL('qaable.com', 465)
