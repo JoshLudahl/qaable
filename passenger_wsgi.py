@@ -1,4 +1,4 @@
-import os, smtplib, requests
+import json, os, requests, smtplib
 from flask import Flask, make_response, redirect, render_template, request, session, url_for
 from flask_session import Session
 from datetime import datetime as dt
@@ -56,7 +56,7 @@ def postHello():
         render_template(
             'index.html', 
             weather=weather.json(),
-            geo=n
+            geo=
         ), 
         200
     )
