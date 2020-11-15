@@ -1,5 +1,5 @@
 import os, smtplib, requests
-from flask import Flask, request, render_template, make_response, redirect, session, url_for
+from flask import Flask, make_response, redirect, render_template, request, session, url_for
 from flask_session import Session
 from datetime import datetime as dt
 
