@@ -37,8 +37,7 @@
 
         <div class="container is-max-desktop">
             <div class="notification is-primary">
-              This container has a <code>max-width</code> of <code>$desktop - $container-offset</code> on widescreen and fullhd.
-
+    
         <div class="card">
             <div class="card-image">
               <figure class="image is-4by3">
@@ -47,13 +46,9 @@
             </div>
             <div class="card-content">
               <div class="media">
-                <div class="media-left">
-                  <figure class="image is-48x48">
-                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                  </figure>
-                </div>
+
                 <div class="media-content">
-                  <p class="title is-4">John Smith</p>
+                  <p class="title is-4">{{ weather.daily[i+1].dt | datetimeformat(weather.timezone_offset) }}</p>
                   <p class="subtitle is-6">@johnsmith</p>
                 </div>
               </div>
