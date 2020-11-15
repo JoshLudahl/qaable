@@ -12,7 +12,9 @@ body {
 
 .custom-notification {
   background-color: #333537;
+  color: #E8E9E9;
 }
+
 
 @media only screen and (max-width: 1000px) {
   .custom-margin {
