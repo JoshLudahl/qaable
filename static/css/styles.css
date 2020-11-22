@@ -14,6 +14,9 @@ body {
   font-weight: 700;
   font-size: 2rem;
 }
+.weather_alert {
+  color: red;
+}
 
 .push-right {
   margin-right: 1rem;

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}?ver=1.08">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}?ver=1.09">
 
     <title>QA-Able</title>
 </head>
@@ -30,7 +30,7 @@
             {% endif %}
 
             {% if weather.alerts %}
-                <h2>Weather Alert: {{ weather.alerts[0].description }} </h2>
+                <h2 class="weather_alert">Weather Alert: {{ weather.alerts[0].description }} </h2>
             {% endif %}
            
             <div class="card">
