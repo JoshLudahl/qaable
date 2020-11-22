@@ -28,11 +28,9 @@ body {
   color: #F2F2F2;
 }
 
-.form {
-  margin: 1rem;
-}
 i {
   font-size: 3rem;
+  color: #687B8C;
 }
 
 @media only screen and (max-width: 1000px) {
