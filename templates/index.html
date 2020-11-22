@@ -33,12 +33,12 @@
             {% if weather.alerts %}
                 <h2 class="weather_alert">Weather Alert: {{ weather.alerts[0].description }} </h2>
             {% endif %}
-            <i class="wi {{ '888' | weather_icon_filter(weather.current.weather[0].icon) }}"></i>
+ 
             <div class="card">
                 <div class="card-content">
                     <div class="media">
                         <div class="content push-right">
-                            <i class="fas {{ weather.current.weather[0].icon | weather_icon_filter() }}"></i>
+                            <i class="fas {{ weather.current.weather[0].id | weather_icon_filter(weather.current.weather[0].icon) }}"></i>
                         </div>
                         <div class="media-content">
                             <p class="title is-4">Currently: {{weather.current.temp | round | int }}&#176;
@@ -59,7 +59,7 @@
                 <div class="card-content">
                     <div class="media">
                         <div class="content push-right">
-                            <i class="fas {{weather.daily[i+1].weather[0].icon | weather_icon_filter()}}"></i>
+                            <i class="fas {{weather.daily[i+1].weather[0].id | weather_icon_filter(weather.daily[i+1].weather[0].icon)}}"></i>
                         </div>
                         <div class="media-content">
                             <p class="title is-4">{{ weather.daily[i+1].dt | datetimeformat(weather.timezone_offset) }}
