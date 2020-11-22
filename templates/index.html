@@ -27,7 +27,7 @@
             <h1>{{ city }}, {{ state }}</h1>
             {% else %}
             <h1>Tigard, OR (default)</h1>
-                {% if weather.alerts %}
+                {% if weather.alerts[0] %}
                     weather.alerts[0].description
                 {% endif %}
             {% endif %}
