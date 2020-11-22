@@ -1,6 +1,5 @@
-from passenger_wsgi import app
 
-weather_icons = {
+WEATHER_ICONS = {
     '01n': "fa-moon",
     '01d': "fa-sun",
     '02n': "fa-cloud-moon",

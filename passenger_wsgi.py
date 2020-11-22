@@ -17,7 +17,8 @@ app.config.update(
 
 Session(app)
 
-import test, weather_dict
+import test
+from weather_dict import WEATHER_ICONS
 
 def getWeather(lat = 45.445033, lon = -122.793760):
     api_key = os.environ.get("WEATHER_API_KEY")
@@ -71,6 +72,6 @@ def datetimeformat(value, offset):
 
 @app.template_filter('weather_icon_filter')
 def weather_icon_filter(value):
-    return weather_icons[value]
+    return WEATHER_ICONS[value]
 
 application = app
