@@ -32,7 +32,7 @@
                 <div class="card-content">
                     <div class="media">
                         <div class="content push-right">
-                            <i class="fas fa-cloud"></i>
+                            <i class="fas {{weather.current.weather[0].icon | weather_icon_filter}}"></i>
                         </div>
                         <div class="media-content">
                             <p class="title is-4">Currently: {{weather.current.temp | round | int }}&#176;
