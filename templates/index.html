@@ -27,6 +27,9 @@
             <h1>{{ city }}, {{ state }}</h1>
             {% else %}
             <h1>Tigard, OR (default)</h1>
+                {% if weather.alert %}
+                    weather.alert[0].description
+                {% endif %}
             {% endif %}
             <div class="card">
                 <div class="card-content">
