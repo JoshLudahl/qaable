@@ -22,6 +22,9 @@ body {
 .form {
   margin: 1rem;
 }
+i {
+  font-size: 3rem;
+}
 
 @media only screen and (max-width: 1000px) {
   .custom-margin {
