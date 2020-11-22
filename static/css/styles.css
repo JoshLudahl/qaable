@@ -10,8 +10,8 @@ body {
   margin-bottom: 1rem;
 }
 
-.content {
-  margin-right: .25rem;
+div.content {
+  margin-right: 1rem;
 }
 
 .custom-notification {
