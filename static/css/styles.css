@@ -10,6 +10,10 @@ body {
 .card {
   margin-bottom: 1rem;
 }
+.city_label {
+  font-weight: 700;
+  font-size: 2rem;
+}
 
 .push-right {
   margin-right: 1rem;
