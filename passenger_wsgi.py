@@ -71,6 +71,6 @@ def datetimeformat(value, offset):
 
 @app.template_filter('weather_icon_filter')
 def weather_icon_filter(value):
-    return "fa-clouds"
+    return "fa-cloud"
 
 application = app
