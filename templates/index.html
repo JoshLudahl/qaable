@@ -24,12 +24,13 @@
     <div class="container is-max-desktop custom-margin">
         <div class="notification custom-notification">
             {% if city %}
-            <h1>{{ city }}, {{ state }}</h1>
+                <h1>{{ city }}, {{ state }}</h1>
             {% else %}
             <h1>Tigard, OR (default)</h1>
-                {% if weather.alerts | length > 0 %}
-                   <h2> {{ weather.alerts }} </h2>
-                {% endif %}
+            {% endif %}
+            
+            {% if weather.alerts | length > 0 %}
+                <h2> {{ weather.alerts }} </h2>
             {% endif %}
             <div class="card">
                 <div class="card-content">
