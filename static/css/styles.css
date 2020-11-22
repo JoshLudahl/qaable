@@ -1,5 +1,5 @@
 body {
-  background: #333537;
+  background: #022840;
   margin: auto;
 }
 
@@ -15,7 +15,7 @@ body {
   font-size: 2rem;
 }
 .weather_alert {
-  color: red;
+  color: #F26444;
 }
 
 .push-right {
@@ -24,7 +24,7 @@ body {
 
 .custom-notification {
   background-color: #333537;
-  color: #E8E9E9;
+  color: #F2F2F2;
 }
 
 .form {
