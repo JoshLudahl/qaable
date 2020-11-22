@@ -69,6 +69,10 @@ def postHello():
 def datetimeformat(value, offset):
     return dt.fromtimestamp(value + offset).strftime("%A")
 
+weather_icons = {
+    #list of icon options
+}
+
 @app.template_filter('weather_icon_filter')
 def weather_icon_filter(value):
     return "fa-cloud"
