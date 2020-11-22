@@ -10,6 +10,10 @@ body {
   margin-bottom: 1rem;
 }
 
+.content {
+  margin-right: .25rem;
+}
+
 .custom-notification {
   background-color: #333537;
   color: #E8E9E9;
