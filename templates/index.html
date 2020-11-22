@@ -33,7 +33,7 @@
             {% if weather.alerts %}
                 <h2 class="weather_alert">Weather Alert: {{ weather.alerts[0].description }} </h2>
             {% endif %}
-            <i class="wi {{ '888' | weather_icon_filter() }}"></i>
+            <i class="wi {{ '888' | weather_icon_filter(weather.current.weather[0].icon) }}"></i>
             <div class="card">
                 <div class="card-content">
                     <div class="media">
