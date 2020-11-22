@@ -2,6 +2,7 @@ import json, os, requests, smtplib
 from flask import Flask, make_response, redirect, render_template, request, session, url_for
 from flask_session import Session
 from datetime import datetime as dt
+from weather_dict import WEATHER_ICONS
 
 app = Flask(__name__)
 
@@ -18,7 +19,6 @@ app.config.update(
 Session(app)
 
 import test
-from weather_dict import WEATHER_ICONS
 
 def getWeather(lat = 45.445033, lon = -122.793760):
     api_key = os.environ.get("WEATHER_API_KEY")
