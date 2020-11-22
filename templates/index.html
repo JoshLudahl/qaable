@@ -31,6 +31,9 @@
             <div class="card">
                 <div class="card-content">
                     <div class="media">
+                        <div class="content">
+                            <i class="fas fa-cloud"></i>
+                        </div>
                         <div class="media-content">
                             <p class="title is-4">Currently: {{weather.current.temp | round | int }}&#176;
                             </p>
@@ -41,9 +44,7 @@
                     <div class="content">
                         Today's forecast: {{ weather.daily[0].weather[0].main }} - {{ weather.daily[0].weather[0].description }}.
                     </div>
-                    <div class="content">
-                        <i class="fas fa-cloud"></i>
-                    </div>
+
                 </div>
             </div>
 
