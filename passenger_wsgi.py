@@ -71,7 +71,7 @@ def datetimeformat(value, offset):
     return dt.fromtimestamp(value + offset).strftime("%A")
 
 @app.template_filter('weather_icon_filter')
-def weather_icon_filter(value, icon_code):
+def weather_icon_filter(value):
   
     return WEATHER_ICONS[value]
 
