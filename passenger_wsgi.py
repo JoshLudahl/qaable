@@ -73,6 +73,6 @@ def datetimeformat(value, offset):
 @app.template_filter('weather_icon_filter')
 def weather_icon_filter(value):
   
-    return WEATHER_ICONS[value]
+    return WEATHER_ICONS[str(value)]
 
 application = app
