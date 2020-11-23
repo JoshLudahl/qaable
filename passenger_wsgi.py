@@ -74,7 +74,6 @@ def datetimeformat(value, offset):
 def weather_icon_filter(value, icon_value):
     value = str(value)
     
-
     return WEATHER_ICONS[value]
 
 application = app
