@@ -17,7 +17,6 @@ WEATHER_ICONS = {
     '13d': "fa-snowflake",
     '50n': "fa-smog",
     '50d': "fa-smog",
-
     '200d': "wi-owm-day-200",
     '201d': "wi-owm-day-201",
     '202d': "wi-owm-day-202",
@@ -28,7 +27,6 @@ WEATHER_ICONS = {
     '230d': "wi-owm-day-230",
     '231d': "wi-owm-day-231",
     '232d': "wi-owm-day-232",
-
     '300d': "wi-owm-day-300",
     '310d': "wi-owm-day-301",
     '302d': "wi-owm-day-302",
@@ -38,7 +36,6 @@ WEATHER_ICONS = {
     '313d': "wi-owm-day-313",
     '314d': "wi-owm-day-314",
     '321d': "wi-owm-day-321",
-    
     '500d': "wi-owm-day-500",
     '501d': "wi-owm-day-501",
     '502d': "wi-owm-day-502",
@@ -48,7 +45,6 @@ WEATHER_ICONS = {
     '520d': "wi-owm-day-520",
     '521d': "wi-owm-day-521",
     '522d': "wi-owm-day-522",
-   
     '600d': "wi-owm-day-600",
     '601d': "wi-owm-day-601",
     '602d': "wi-owm-day-602",
@@ -59,7 +55,6 @@ WEATHER_ICONS = {
     '620d': "wi-owm-day-620",
     '621d': "wi-owm-day-621",
     '622d': "wi-owm-day-622",
-    
     '701d': "wi-owm-day-701",
     '711d': "wi-owm-day-711",
     '721d': "wi-owm-day-721",
@@ -68,20 +63,17 @@ WEATHER_ICONS = {
     '761d': "wi-owm-day-761",
     '762d': "wi-owm-day-762",
     '781d': "wi-owm-day-781",
-    
     '800d': "wi-owm-day-800",
     '801d': "wi-owm-day-801",
     '802d': "wi-owm-day-802",
     '803d': "wi-owm-day-803",
     '804d': "wi-owm-day-804",
-    
     '900d': "wi-owm-day-900",
     '902d': "wi-owm-day-902",
     '903d': "wi-owm-day-903",
     '904d': "wi-owm-day-904",
     '906d': "wi-owm-day-906",
     '957d': "wi-owm-day-957",
-    
     '200': "wi-owm-night-200",
     '201': "wi-owm-night-201",
     '202': "wi-owm-night-202",
@@ -92,7 +84,6 @@ WEATHER_ICONS = {
     '230': "wi-owm-night-230",
     '231': "wi-owm-night-231",
     '232': "wi-owm-night-232",
-    
     '300': "wi-owm-night-300",
     '301': "wi-owm-night-301",
     '302': "wi-owm-night-302",
@@ -102,7 +93,6 @@ WEATHER_ICONS = {
     '313': "wi-owm-night-313",
     '314': "wi-owm-night-314",
     '321': "wi-owm-night-321",
-    
     '500': "wi-owm-night-500",
     '501': "wi-owm-night-501",
     '502': "wi-owm-night-502",
@@ -113,7 +103,6 @@ WEATHER_ICONS = {
     '521': "wi-owm-night-521",
     '522': "wi-owm-night-522",
     '531': "wi-owm-night-531",
-    
     '600': "wi-owm-night-600",
     '601': "wi-owm-night-601",
     '602': "wi-owm-night-602",
@@ -124,7 +113,6 @@ WEATHER_ICONS = {
     '620': "wi-owm-night-620",
     '621': "wi-owm-night-621",
     '622': "wi-owm-night-622",
-    
     '701': "wi-owm-night-701",
     '711': "wi-owm-night-711",
     '721': "wi-owm-night-721",
@@ -133,13 +121,11 @@ WEATHER_ICONS = {
     '761': "wi-owm-night-761",
     '762': "wi-owm-night-762",
     '781': "wi-owm-night-781",
-    
     '800': "wi-owm-night-800",
     '801': "wi-owm-night-801",
     '802': "wi-owm-night-802",
     '803': "wi-owm-night-803",
     '804': "wi-owm-night-804",
-    
     '900': "wi-owm-night-900",
     '902': "wi-owm-night-902",
     '903': "wi-owm-night-903",
