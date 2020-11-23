@@ -38,7 +38,7 @@
                 <div class="card-content">
                     <div class="media">
                         <div class="content push-right">
-                            <i class="fas {{ weather.current.weather[0].id | weather_icon_filter() }}"></i>
+                            <i class="wi {{ weather.current.weather[0].id | weather_icon_filter() }}"></i>
                         </div>
                         <div class="media-content">
                             <p class="title is-4">Currently: {{weather.current.temp | round | int }}&#176;
@@ -59,7 +59,7 @@
                 <div class="card-content">
                     <div class="media">
                         <div class="content push-right">
-                            <i class="fas {{weather.daily[i+1].weather[0].id | weather_icon_filter() }}"></i>
+                            <i class="wi {{weather.daily[i+1].weather[0].id | weather_icon_filter() }}"></i>
                         </div>
                         <div class="media-content">
                             <p class="title is-4">{{ weather.daily[i+1].dt | datetimeformat(weather.timezone_offset) }}
