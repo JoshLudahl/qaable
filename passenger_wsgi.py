@@ -37,9 +37,9 @@ def getGeoData(zip):
         return make_response(
             render_template(
                 'index.html',
-                error='Not Found'
+                error='Location not found.'
             ),
-            404
+            200
         )
 
 
@@ -87,7 +87,7 @@ def postHello():
             return make_response(
                 render_template(
                     'index.html',
-                    error='Not Found'
+                    error='An error has occurred.'
                 ),
                 200
             )
@@ -95,7 +95,7 @@ def postHello():
         return make_response(
             render_template(
                 'index.html',
-                error='Not Found'
+                error='Invalid zip code.'
             ),
             200
         )
