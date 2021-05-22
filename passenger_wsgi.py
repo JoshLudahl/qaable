@@ -20,13 +20,28 @@ Session(app)
 
 import test
 
-def getWeather(lat = 45.445033, lon = -122.793760):
+
+def getWeather(lat=45.445033, lon=-122.793760):
     api_key = os.environ.get("WEATHER_API_KEY")
-    base_url = "https://api.openweathermap.org/data/2.5/onecall?lat=" + str(lat) + "&lon=" + str(lon) + "&units=imperial&appid=" + api_key
+    base_url = "https://api.openweathermap.org/data/2.5/onecall?lat=" + str(lat) + "&lon=" + str(
+        lon) + "&units=imperial&appid=" + api_key
     return requests.get(base_url)
-    
+
+
 def getGeoData(zip):
-    return requests.get("https://public.opendatasoft.com/api/records/1.0/search/?dataset=us-zip-code-latitude-and-longitude&q=" + str(zip) +"&facet=state&facet=timezone&facet=dst")
+    try:
+        return requests.get(
+            "https://public.opendatasoft.com/api/records/1.0/search/?dataset=us-zip-code-latitude-and-longitude&q=" + str(
+                zip) + "&facet=state&facet=timezone&facet=dst")
+    except requests.exceptions.RequestException as e:
+        return make_response(
+            render_template(
+                'index.html',
+                error='Not Found'
+            ),
+            404
+        )
+
 
 def send_email():
     smtpObj = smtplib.SMTP_SSL('qaable.com', 465)
@@ -35,20 +50,22 @@ def send_email():
     smtpObj.sendmail(os.environ.get('EMAIL'), 'qa@qaable.com', 'Subject: Testing. \nLove it.')
     smtpObj.quit()
 
+
 @app.route('/')
 def hello_world():
     weather = getWeather()
-    return  make_response(
+    return make_response(
         render_template(
-            'index.html', 
-            weather = weather.json()
-        ), 
+            'index.html',
+            weather=weather.json()
+        ),
         200
     )
 
-@app.route('/', methods = ["POST"])
+
+@app.route('/', methods=["POST"])
 def postHello():
-    req = request.form.get("zip","None")
+    req = request.form.get("zip", "None")
     geo = getGeoData(req).json()
     longitude = geo['records'][0]['fields']['longitude']
     latitude = geo['records'][0]['fields']['latitude']
@@ -57,18 +74,20 @@ def postHello():
     weather = getWeather(latitude, longitude)
     return make_response(
         render_template(
-            'index.html', 
-            weather = weather.json(),
-            city = city,
-            state = state
-        ), 
+            'index.html',
+            weather=weather.json(),
+            city=city,
+            state=state
+        ),
         200
     )
+
 
 # filter for formatting timestamp to day of the week, ie Monday, Tuesday, etc.
 @app.template_filter('datetimeformat')
 def datetimeformat(value, offset):
     return dt.fromtimestamp(value + offset).strftime("%A")
+
 
 @app.template_filter('weather_icon_filter')
 def weather_icon_filter(value, icon_value):
@@ -76,7 +95,8 @@ def weather_icon_filter(value, icon_value):
     icon_value = icon_value[2:]
     if icon_value == "d":
         value = value + icon_value
-        
+
     return WEATHER_ICONS[value]
+
 
 application = app

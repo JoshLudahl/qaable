@@ -23,6 +23,9 @@
     </form>
 
     <div class="container is-max-desktop custom-margin">
+        {% if error %}
+            <div>{{ error }}</div>
+        {% endif %}
         <div class="notification custom-notification">
             {% if city %}
                 <h1 class="city_label">{{ city }}, {{ state }}</h1>
