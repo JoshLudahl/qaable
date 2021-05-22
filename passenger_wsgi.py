@@ -30,9 +30,10 @@ def getWeather(lat=45.445033, lon=-122.793760):
 
 def getGeoData(zip):
     try:
-        return requests.get(
+        req = requests.get(
             "https://public.opendatasoft.com/api/records/1.0/search/?dataset=us-zip-code-latitude-and-longitude&q=" + str(
                 zip) + "&facet=state&facet=timezone&facet=dst")
+        return req
     except requests.exceptions.RequestException as e:
         return make_response(
             render_template(
