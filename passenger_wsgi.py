@@ -44,11 +44,11 @@ def getGeoData(zip):
 
 
 def send_email():
-    smtpObj = smtplib.SMTP_SSL('qaable.com', 465)
-    smtpObj.ehlo()
-    smtpObj.login(os.environ.get("EMAIL"), os.environ.get("EMAIL_PASSWORD"))
-    smtpObj.sendmail(os.environ.get('EMAIL'), 'qa@qaable.com', 'Subject: Testing. \nLove it.')
-    smtpObj.quit()
+    smtp_obj = smtplib.SMTP_SSL('qaable.com', 465)
+    smtp_obj.ehlo()
+    smtp_obj.login(os.environ.get("EMAIL"), os.environ.get("EMAIL_PASSWORD"))
+    smtp_obj.sendmail(os.environ.get('EMAIL'), 'qa@qaable.com', 'Subject: Testing. \nLove it.')
+    smtp_obj.quit()
 
 
 @app.route('/')
@@ -66,30 +66,32 @@ def hello_world():
 @app.route('/', methods=["POST"])
 def postHello():
     req = request.form.get("zip", "None")
-    geo = getGeoData(req).json()
-    longitude = geo['records'][0]['fields']['longitude']
-    latitude = geo['records'][0]['fields']['latitude']
-    city = geo['records'][0]['fields']['city']
-    state = geo['records'][0]['fields']['state']
-    weather = getWeather(latitude, longitude)
-    try:
-        return make_response(
-            render_template(
-                'index.html',
-                weather=weather.json(),
-                city=city,
-                state=state
-            ),
-            200
-        )
-    except requests.exceptions.RequestException as e:
-        return make_response(
-            render_template(
-                'index.html',
-                error='Not Found'
-            ),
-            404
-        )
+    if request.form.get("zip").isdigit():
+        geo = getGeoData(req).json()
+        longitude = geo['records'][0]['fields']['longitude']
+        latitude = geo['records'][0]['fields']['latitude']
+        city = geo['records'][0]['fields']['city']
+        state = geo['records'][0]['fields']['state']
+        weather = getWeather(latitude, longitude)
+        try:
+            return make_response(
+                render_template(
+                    'index.html',
+                    weather=weather.json(),
+                    city=city,
+                    state=state
+                ),
+                200
+            )
+        except requests.exceptions.RequestException as e:
+            return make_response(
+                render_template(
+                    'index.html',
+                    error='Not Found'
+                ),
+                404
+            )
+
 
 # filter for formatting timestamp to day of the week, ie Monday, Tuesday, etc.
 @app.template_filter('datetimeformat')
