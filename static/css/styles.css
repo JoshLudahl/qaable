@@ -33,6 +33,10 @@ i {
   color: #687B8C;
 }
 
+.has_error {
+  color: #f55c47;
+}
+
 @media only screen and (max-width: 1000px) {
   .custom-margin {
     width: 100%;
