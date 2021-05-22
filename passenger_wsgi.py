@@ -91,6 +91,14 @@ def postHello():
                 ),
                 404
             )
+    else:
+        return make_response(
+            render_template(
+                'index.html',
+                error='Not Found'
+            ),
+            404
+        )
 
 
 # filter for formatting timestamp to day of the week, ie Monday, Tuesday, etc.
