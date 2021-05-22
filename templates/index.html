@@ -21,11 +21,11 @@
         <input type="text" name="zip" placeholder="Enter zip code">
         <button type="submit">Search</button>
     </form>
-
-    <div class="container is-max-desktop custom-margin">
         {% if error %}
             <div>{{ error }}</div>
-        {% endif %}
+        {% else %}
+
+    <div class="container is-max-desktop custom-margin">
         <div class="notification custom-notification">
             {% if city %}
                 <h1 class="city_label">{{ city }}, {{ state }}</h1>
@@ -79,5 +79,7 @@
     {% endfor %}
         </div>
     </div>
+{{% endif %}}
+
 </body>
 </html>
