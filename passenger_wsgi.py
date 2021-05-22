@@ -72,16 +72,24 @@ def postHello():
     city = geo['records'][0]['fields']['city']
     state = geo['records'][0]['fields']['state']
     weather = getWeather(latitude, longitude)
-    return make_response(
-        render_template(
-            'index.html',
-            weather=weather.json(),
-            city=city,
-            state=state
-        ),
-        200
-    )
-
+    try:
+        return make_response(
+            render_template(
+                'index.html',
+                weather=weather.json(),
+                city=city,
+                state=state
+            ),
+            200
+        )
+    except requests.exceptions.RequestException as e:
+        return make_response(
+            render_template(
+                'index.html',
+                error='Not Found'
+            ),
+            404
+        )
 
 # filter for formatting timestamp to day of the week, ie Monday, Tuesday, etc.
 @app.template_filter('datetimeformat')
