@@ -35,13 +35,7 @@ def getGeoData(zip):
                 zip) + "&facet=state&facet=timezone&facet=dst")
         return req
     except requests.exceptions.RequestException as e:
-        return make_response(
-            render_template(
-                'index.html',
-                error='Location not found.'
-            ),
-            200
-        )
+        return 404
 
 
 def send_email():
@@ -68,13 +62,22 @@ def hello_world():
 def postHello():
     req = request.form.get("zip", "None")
     if request.form.get("zip").isdigit():
-        geo = getGeoData(req).json()
-        longitude = geo['records'][0]['fields']['longitude']
-        latitude = geo['records'][0]['fields']['latitude']
-        city = geo['records'][0]['fields']['city']
-        state = geo['records'][0]['fields']['state']
-        weather = getWeather(latitude, longitude)
-        try:
+        req = geo = getGeoData(req).json()
+        if req == 404:
+            return make_response(
+                render_template(
+                    'index.html',
+                    error='Invalid zip code.'
+                ),
+                200
+            )
+
+        else:
+            longitude = geo['records'][0]['fields']['longitude']
+            latitude = geo['records'][0]['fields']['latitude']
+            city = geo['records'][0]['fields']['city']
+            state = geo['records'][0]['fields']['state']
+            weather = getWeather(latitude, longitude)
             return make_response(
                 render_template(
                     'index.html',
@@ -84,14 +87,7 @@ def postHello():
                 ),
                 200
             )
-        except requests.exceptions.RequestException as e:
-            return make_response(
-                render_template(
-                    'index.html',
-                    error='An error has occurred.'
-                ),
-                200
-            )
+
     else:
         return make_response(
             render_template(
