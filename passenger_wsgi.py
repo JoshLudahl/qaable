@@ -89,7 +89,7 @@ def postHello():
                     'index.html',
                     error='Not Found'
                 ),
-                404
+                200
             )
     else:
         return make_response(
