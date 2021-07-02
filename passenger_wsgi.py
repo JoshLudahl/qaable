@@ -3,6 +3,7 @@ from flask import Flask, make_response, redirect, render_template, request, sess
 from flask_session import Session
 from datetime import datetime as dt
 from weather_dict import WEATHER_ICONS
+from pyzipcode import ZipCodeDatabase
 
 app = Flask(__name__)
 
@@ -19,6 +20,7 @@ app.config.update(
 Session(app)
 
 import test
+zipCodes = ZipCodeDatabase()
 
 
 def getWeather(lat=45.445033, lon=-122.793760):
@@ -30,11 +32,9 @@ def getWeather(lat=45.445033, lon=-122.793760):
 
 def getGeoData(zip):
     try:
-        req = requests.get(
-            "https://public.opendatasoft.com/api/records/1.0/search/?dataset=us-zip-code-latitude-and-longitude&q=" + str(
-                zip) + "&facet=state&facet=timezone&facet=dst")
-        return req
-    except requests.exceptions.RequestException as e:
+        return zipCodes[zip]
+        
+    except KeyError as e:
         return 404
 
 
@@ -55,8 +55,8 @@ def postHello():
     req = request.form.get("zip", "None")
     zip = request.form.get("zip")
     if zip.isdigit() and len(zip) == 5:
-        req = geo = getGeoData(req).json()
-        if geo['nhits'] == 0:
+        req = geo = getGeoData(req)
+        if geo == 404:
             return make_response(
                 render_template(
                     'index.html',
@@ -66,10 +66,10 @@ def postHello():
             )
 
         else:
-            longitude = geo['records'][0]['fields']['longitude']
-            latitude = geo['records'][0]['fields']['latitude']
-            city = geo['records'][0]['fields']['city']
-            state = geo['records'][0]['fields']['state']
+            longitude = geo['longitude']
+            latitude = geo['latitude']
+            city = geo['city']
+            state = geo['state']
             weather = getWeather(latitude, longitude)
             return make_response(
                 render_template(

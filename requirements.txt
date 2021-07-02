@@ -2,3 +2,4 @@ Flask
 pytest
 Flask-Session
 Requests
+pyzipcode
