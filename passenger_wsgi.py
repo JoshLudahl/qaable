@@ -38,14 +38,6 @@ def getGeoData(zip):
         return 404
 
 
-def send_email():
-    smtp_obj = smtplib.SMTP_SSL('qaable.com', 465)
-    smtp_obj.ehlo()
-    smtp_obj.login(os.environ.get("EMAIL"), os.environ.get("EMAIL_PASSWORD"))
-    smtp_obj.sendmail(os.environ.get('EMAIL'), 'qa@qaable.com', 'Subject: Testing. \nLove it.')
-    smtp_obj.quit()
-
-
 @app.route('/')
 def hello_world():
     weather = getWeather()
