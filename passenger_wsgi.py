@@ -33,7 +33,6 @@ def getWeather(lat=45.445033, lon=-122.793760):
 def getGeoData(zip):
     try:
         return zipCodes[zip]
-        
     except KeyError as e:
         return 404
 
@@ -64,7 +63,6 @@ def postHello():
                 ),
                 200
             )
-
         else:
             longitude = geo['longitude']
             latitude = geo['latitude']
@@ -80,7 +78,6 @@ def postHello():
                 ),
                 200
             )
-
     else:
         return make_response(
             render_template(
