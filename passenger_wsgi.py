@@ -51,10 +51,9 @@ def hello_world():
 
 @app.route('/', methods=["POST"])
 def postHello():
-    req = request.form.get("zip", "None")
-    zip = request.form.get("zip")
+    zip = request.form.get("zip", "None")
     if zip.isdigit() and len(zip) == 5:
-        req = geo = getGeoData(req)
+        geo = getGeoData(zip)
         if geo == 404:
             return make_response(
                 render_template(
