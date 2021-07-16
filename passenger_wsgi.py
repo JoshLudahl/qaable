@@ -63,10 +63,10 @@ def postHello():
                 200
             )
         else:
-            longitude = geo['longitude']
-            latitude = geo['latitude']
-            city = geo['city']
-            state = geo['state']
+            longitude = geo.longitude
+            latitude = geo.latitude
+            city = geo.city
+            state = geo.state
             weather = getWeather(latitude, longitude)
             return make_response(
                 render_template(
