@@ -1,6 +1,6 @@
 
 body {
-  background: #FFEEDB;
+  background: #E8F6EF;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -26,13 +26,13 @@ body {
 }
 
 .custom-notification {
-  background-color: #0A1D37;
-  color: #FFEEDB;
+  background-color: #4C4C6D;
+  color: #E8F6EF; 
 }
 
 i {
   font-size: 3rem;
-  color: #FFBD9B;
+  color: #B8DFD8;
 }
 
 .has_error {
