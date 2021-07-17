@@ -24,13 +24,13 @@ body {
 }
 
 .custom-notification {
-  background-color: #2C3842;
-  color: #F2F2F2;
+  background-color: #0A1D37;
+  color: #FFEEDB;
 }
 
 i {
   font-size: 3rem;
-  color: #687B8C;
+  color: #FFD8CC;
 }
 
 .has_error {
