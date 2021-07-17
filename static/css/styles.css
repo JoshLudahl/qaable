@@ -27,12 +27,12 @@ body {
 
 .custom-notification {
   background-color: #F38BA0;
-  color: #EDF6E5; 
+  color: #FFBCBC; 
 }
 
 i {
   font-size: 3rem;
-  color: #EDF6E5;
+  color: #FFBCBC;
 }
 
 .has_error {
