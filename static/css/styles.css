@@ -1,12 +1,12 @@
 * {
   background-color: #FFEEDB;
-  height: auto;
 }
 
 body {
   background: #FFEEDB;
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 .custom-margin {
