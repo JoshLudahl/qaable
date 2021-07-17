@@ -90,7 +90,7 @@ def postHello():
 # filter for formatting timestamp to day of the week, ie Monday, Tuesday, etc.
 @app.template_filter('datetimeformat')
 def datetimeformat(value, offset):
-    return dt.fromtimestamp(value + offset).strftime("%A")
+    return dt.fromtimestamp(value + offset).strftime("%A - %m/%d/%Y")
 
 
 @app.template_filter('weather_icon_filter')
