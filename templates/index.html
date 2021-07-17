@@ -44,7 +44,10 @@
                             <i class="wi {{ weather.current.weather[0].id | weather_icon_filter(weather.current.weather[0].icon) }}"></i>
                         </div>
                         <div class="media-content">
-                            <p class="title is-4">Currently: {{weather.current.temp | round | int }}&#176; | {{ weather.daily[0].dt | datetimeformat(weather.timezone_offset) }}
+                            <p title is-4>
+                                Today: {{ weather.daily[0].dt | datetimeformat(weather.timezone_offset) }}
+                            </p>
+                            <p class="title is-4">Currently: {{weather.current.temp | round | int }}&#176;
                             </p>
                             <p class="subtitle is-6">{{ weather.daily[0].temp.max | round | int }}&#176; | 
                                 {{ weather.daily[0].temp.min | round | int }}&#176;</p>
