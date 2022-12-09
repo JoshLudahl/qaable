@@ -7,7 +7,7 @@ html, body {
 }
 
 body {
-  background: #222222 ;
+  background: #EFF5F5 ;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -25,7 +25,7 @@ body {
   font-size: 2rem;
 }
 .weather_alert {
-  color: #F3EFE0;
+  color: #D6E4E5;
 }
 
 .push-right {
@@ -33,17 +33,17 @@ body {
 }
 
 .custom-notification {
-  background-color: #434242;
+  background-color: #497174;
   color: #22A39F;
 }
 
 i {
   font-size: 3rem;
-  color: #22A39F;
+  color: #EB6440;
 }
 
 .has_error {
-  color: #F3EFE0;
+  color: #D6E4E5  ;
 }
 
 @media only screen and (max-width: 1000px) {
