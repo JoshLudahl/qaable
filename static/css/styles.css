@@ -4,10 +4,10 @@ html, body {
   width: 100%;
   margin: 0;
   padding: 0;
+  background: #000000 ;
 }
 
 body {
-  background: #EB6440 ;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -33,17 +33,17 @@ body {
 }
 
 .custom-notification {
-  background-color: #D6E4E5;
-  color: #EB6440;
+  background-color: #282A3A;
+  color: #C69749;
 }
 
 i {
   font-size: 3rem;
-  color: #EB6440;
+  color: #C69749;
 }
 
 .has_error {
-  color: #D6E4E5  ;
+  color: #735F32  ;
 }
 
 @media only screen and (max-width: 1000px) {
